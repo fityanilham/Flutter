@@ -119,13 +119,20 @@ class Contact extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.only(top: 50),
               child: Column(
-                children: <Widget>[
-                  Image.network('https://cdn.iconscout.com/icon/free/png-512/avatar-372-456324.png', height: 150),
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Image.network('https://cdn.iconscout.com/icon/free/png-512/avatar-372-456324.png', height: 150),
+                        Text(name)
+                      ],
+                    ),
+                  ),
                   SizedBox(height: 30),
                   Container(
                     child: Column(
                       children: <Widget>[
-                        Text(name , style: TextStyle(fontSize: 30)),
+                        // Text(name , style: TextStyle(fontSize: 30)),
                         SizedBox(height: 10),
                         Text(number, style: TextStyle(fontSize: 30)),
                       ],
