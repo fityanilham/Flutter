@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
+    title: "Pendaftaran",
     home: MyApp(),
   ));
 }
@@ -13,6 +14,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  TextEditingController controllernama = new TextEditingController();
+  TextEditingController controllerumur = new TextEditingController();
+
+  void kirimData(){
+    AlertDialog alertDialog = AlertDialog(
+      content: Container(
+        height: 200.0,
+        child: Column(
+          children: [
+            Text("Nama Lengkap : ${controllernama.text}"),
+            Text("Umur : ${controllerumur.text}"),
+            RaisedButton(
+              child: Text("OK"),
+              onPressed: ()=>Navigator.pop(context),
+            )
+          ],
+        ),
+      ),
+    );
+    showDialog(context: context, child: alertDialog);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +74,7 @@ class _MyAppState extends State<MyApp> {
             Text("Login Rental", style: TextStyle(fontSize: 40.0),),
             SizedBox(height: 50.0,),
             TextField(
+              controller: controllernama,
               decoration: InputDecoration(
                 hintText: "Nama",
                 labelText: "Nama",
@@ -62,11 +87,12 @@ class _MyAppState extends State<MyApp> {
             ),
             SizedBox(height: 20,),
             TextField(
-              obscureText: true,
+              // obscureText: true,
+              controller: controllerumur,
               decoration: InputDecoration(
-                hintText: "Password",
-                labelText: "Password",
-                icon: Icon(Icons.lock_outline),
+                hintText: "Umur",
+                labelText: "Umur",
+                // icon: Icon(Icons.lock_outline),
                 suffixIcon: GestureDetector(
                   onTap: () {},
                   child: Icon(Icons.visibility)
@@ -83,7 +109,9 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {}
+              onPressed: () {
+                kirimData();
+              }
             ),
             FlatButton(
               onPressed: () {}, 
