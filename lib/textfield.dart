@@ -17,6 +17,8 @@ class _MyAppState extends State<MyApp> {
 
   TextEditingController controllernama = new TextEditingController();
   TextEditingController controllerumur = new TextEditingController();
+  String materi;
+  List listmateri = ["Flutter", "Laravel", "React js"];
 
   void kirimData(){
     AlertDialog alertDialog = AlertDialog(
