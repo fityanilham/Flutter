@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Flutter",
-            "program": "lib/main.dart",
+            "program": "lib/textfield.dart",
             "request": "launch",
             "type": "dart"
         }
